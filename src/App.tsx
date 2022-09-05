@@ -7,7 +7,7 @@ function App() {
   const webSocketRef = useRef<WebSocket>();
 
   useEffect(() => {
-    const socket = new WebSocket("wss://scefiw81wf.execute-api.ap-northeast-1.amazonaws.com/production");
+    const socket = new WebSocket(process.env.Websocket_Endpoint || "");
     webSocketRef.current = socket;
 
     socket.addEventListener("message", event => {
