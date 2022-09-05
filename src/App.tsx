@@ -7,7 +7,7 @@ function App() {
   const webSocketRef = useRef<WebSocket>();
 
   useEffect(() => {
-    const socket = new WebSocket(process.env.WEBSOCKET_ENDPOINT!);
+    const socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_ENDPOINT!);
     webSocketRef.current = socket;
 
     socket.addEventListener("message", event => {
