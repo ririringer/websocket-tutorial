@@ -3,13 +3,32 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
+import { Page2 } from './Page2';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Link to="/">
+        home 
+      </Link>
+      <Link to="/page2">
+        page2
+      </Link>
+      
+      <Switch>
+          {/* exactをつけると完全一致になります。Homeはexactをつけてあげます */}
+          <Route exact path="/">
+            <App />
+          </Route>
+          <Route path="/page2">
+            <Page2 />
+          </Route>
+        </Switch>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
